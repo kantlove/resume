@@ -1,0 +1,228 @@
+\documentclass[a4paper]{article}
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+
+% ---------------------------------------------------------------
+% Package declaration
+% ---------------------------------------------------------------
+\usepackage{array}
+\usepackage{tabu}
+\usepackage{geometry}
+\usepackage{numdef} % allow numbers in newcommand name
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{color}
+
+% ---------------------------------------------------------------
+% Global variables
+% ---------------------------------------------------------------
+\def \hMargin {1cm}
+\def \vMargin {1cm}
+\definecolor{purple}{HTML}{2980b9}
+
+% Personal info
+\def \email {minhthai40@gmail.com}
+\def \address {403C Apt 120 Dist 2, HCMC 700000}
+\def \phone {(+84)975-950-945}
+\def \name {Minh Thai Pham}
+\def \githubUrl {\link{https://github.com/kantlove}{github.com/kantlove}}
+\def \linkedinUrl {\link{https://linkedin.com/in/minhthai}{linkedin.com/in/minhthai}}
+
+% ---------------------------------------------------------------
+% Config
+% ---------------------------------------------------------------
+\geometry{
+ left=\hMargin,
+ right=\hMargin,
+ top=\vMargin,
+ bottom=\vMargin,
+}
+\hypersetup{%
+  colorlinks=false,% hyperlinks will be black
+  linkbordercolor=purple,% hyperlink borders will be red
+  pdfborderstyle={/S/U/W 1}% border style will be underline of width 1pt
+}
+\setlength{\multicolsep}{6.0pt plus 2.0pt minus 1.5pt} % vertical margin of multicol
+
+% ---------------------------------------------------------------
+% Commands
+% ---------------------------------------------------------------
+\newcommand{\bold}[1]{\textbf{#1}}
+\newcommand{\empText}[1]{\fontfamily{put}\selectfont#1} % Palatino font
+\newcommand{\fSize}[2]{\fontsize{#1}{#1}\selectfont{#2}}
+\num\newcommand{\h1}[1]{\bold{\empText{\Large{#1}}}}
+\num\newcommand{\h2}[1]{\noindent\bold{\empText{\fSize{11}{#1}}}}
+\num\newcommand{\h3}[1]{\noindent\bold{#1}}
+\newcommand{\separator}{\noindent\rule[0.2cm]{\linewidth}{0.1pt}}
+\newcommand{\link}[2]{\href{#1}{\textcolor{purple}{#2}}}
+
+\newcommand{\threeCols}[3]{%
+% \noindent and @{} is needed to remove automatic indentation
+% c=horizontal center, m=vertical center
+\noindent
+\begin{tabu} to \linewidth {@{} X[m]X[c,m]X[r,m] @{}}
+  \bold{#1} & \bold{#2} & \bold{#3} \\
+\end{tabu}%
+}
+
+\newcommand{\twoCols}[2]{%
+\noindent
+\begin{tabu} to \linewidth {@{} X[m]X[r,m] @{}}
+  \bold{#1} & \bold{#2} \\
+\end{tabu}%
+}
+
+  
+% ---------------------------------------------------------------
+% Types
+% ---------------------------------------------------------------
+\let\tempone\itemize
+\let\temptwo\enditemize
+\renewenvironment{itemize}{\tempone[leftmargin=0.5cm]\setlength{\itemsep}{0cm}}{\temptwo}
+  
+% ---------------------------------------------------------------
+% Document
+% ---------------------------------------------------------------
+\begin{document}
+
+% ---------------------------------------------------------------
+% Header
+% ---------------------------------------------------------------
+% Inorder to have right-aligned multiline text, nested table is
+% needed
+\noindent
+\begin{tabu} to \linewidth {@{} X[m]X[2,c,m]X[r,m] @{}}
+  \address \newline \phone 
+  & 
+  \h1{\name} 
+  & 
+  \begin{tabu}{@{} X[r] @{}} \email \\ \githubUrl \\ \linkedinUrl \end{tabu}
+\end{tabu}
+
+% ---------------------------------------------------------------
+% Experience
+% ---------------------------------------------------------------
+\bigskip
+
+\h2{Employment}
+
+\separator
+
+\threeCols{Software Engineer Intern}{KMS Inc.}{May 2015 - Aug 2015}
+\\Research \& Development Team
+\begin{itemize}
+\item Wrote script that automatically setups working environment for the team (using Docker and Vagrant).
+\item Ran a web scraper to collect and filter all real-estate market data in the city.
+\end{itemize}
+
+\threeCols{Backend Developer}{Chopp Inc.}{Sep 2015 - Oct 2015}
+\begin{itemize}
+\item Saved time of people by delivering market goods based on customers' orders in the mobile app.
+\end{itemize}
+
+\threeCols{iOS Developer}{Connekt}{June 2013 - June 2014}
+\begin{itemize}
+\item Provide a better way to connect entrepreneurs and developers by creating a matching system.
+\item Implemented a card-swiping controls similar to the one of Tinder.
+\end{itemize}
+
+\smallskip
+
+% ---------------------------------------------------------------
+% Technical skills
+% ---------------------------------------------------------------
+\h2{Technical Skills}\\
+\separator
+
+\vspace{-2.5mm}
+\begin{itemize}
+\item Languages: Java(proficient), some knowledge in C++, C\#, and HTML
+\item Windows, Windows Phone, Networking, Compiler.
+\end{itemize}
+
+\smallskip
+
+% ---------------------------------------------------------------
+% Education
+% ---------------------------------------------------------------
+\h2{Education}\\
+\separator
+
+\smallskip
+\threeCols{B.S Computer Science}{Ho Chi Minh University of Science}{Expected graduation 2016}
+\begin{itemize}
+\item Cumulative GPA: 3.89
+\end{itemize}
+
+\h3{Relevant courses}
+\begin{multicols}{3}
+\noindent
+	\begin{itemize}
+	\item Data structures
+	\item Algorithms and Complexity
+	\item Internetworking Protocol
+	\item Mobile Development
+	\item Languages and Compiler Design
+	\end{itemize}
+\end{multicols}
+
+\h3{Course projects}
+\begin{itemize}
+\item \bold{C compiler}: create a compiler for a simple version of C.
+\item \bold{Document search engine}: support query of relevant documents.
+\item \bold{SocketEx}: improve socket programming in my homework by exploiting the JavaScript callback syntax (similar to socket.io)
+\item \bold{P2P music sharer}: browse, share and play songs from other computers in local network.
+\end{itemize}
+
+\smallskip
+
+% ---------------------------------------------------------------
+% Project Experience
+% ---------------------------------------------------------------
+\h2{Project Experience}\\
+\separator
+
+\twoCols{BusMap}{Multi-platform}
+Windows Phone Development Team
+\begin{itemize}
+\item Help working people and students travel around the city faster by giving bus directions, bus information, and real-time bus tracking (like Uber).
+\item Implement the app for Windows Phone 8.1 platform.
+\end{itemize}
+
+\twoCols{TODOs Parser extension}{TypeScript, VS Code}
+\begin{itemize}
+\item Parses all TODO single/multiline comments in current project.
+\item Supports 14 programming languages.
+\end{itemize}
+
+\twoCols{JSON Compressor}{Java}
+\begin{itemize}
+\item Compress Json file up to 50\% and still keep the Json format.
+\end{itemize}
+
+\twoCols{GoMusic}{C\#, WP8}
+\begin{itemize}
+\item Developed a music player app with automatic lyrics searching.
+\end{itemize}
+
+\twoCols{Elderly's Pal}{C\#, Kinect}
+\begin{itemize}
+\item Help elder people track their health and entertain while sitting on their sofas at home.
+\end{itemize}
+
+\smallskip
+
+% ---------------------------------------------------------------
+% Additional Experience and Awards
+% ---------------------------------------------------------------
+\h2{Additional Experience and Awards}\\
+\separator
+
+\vspace{-2.5mm}
+\begin{itemize}
+\item Second Prize in Vietnamese Talent Award in Technology, 2015.
+\item Qualify for 2nd national round of Microsoft Imagine Cup, 2013.
+\end{itemize}
+
+\end{document}

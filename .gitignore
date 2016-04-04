@@ -1,0 +1,8 @@
+# exclude everything and include only wanted files
+*
+!*.sty
+!*.pdf
+!*.tex
+!*.txt
+!*.md
+!*.gitignore
